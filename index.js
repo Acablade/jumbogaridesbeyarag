@@ -3,7 +3,7 @@ const path = require('path')
 const app = express()
 
 app.use((req,res,next) => {
-    //res.header('Refresh','5; url=https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+    res.header('Refresh','10; url=https://www.youtube.com/watch?v=dQw4w9WgXcQ')
     next()
 })
 
