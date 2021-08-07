@@ -1,17 +1,39 @@
 const express = require('express')
 const app = express()
 
-app.use((req,res,next) => {
+const data = {
+    videos:[
+        "S0yLbdZRu3A",
+        "_S7WEVLbQ-Y",
+        "DN0gAQQ7FAQ",
+        "O8MtMb2RkKg",
+        "AIobdZ8OGso",
+        "G1IbRujko-A",
+        "wDgQdr8ZkTw",
+        "zecnwqXe850",
+        "VCbH_xY4B9o",
+        "wMeKOT-W-mE",
+        "SkgTxQm9DWM"
+    ]
+}
+
+app.set('view engine', 'ejs');
+
+/*app.use((req,res,next) => {
     res.header('Refresh','120; url=https://www.youtube.com/watch?v=dQw4w9WgXcQ')
     next()
-})
+})*/
 
 app.use(express.static(__dirname + "/public"));
 
 
 
 app.get('/',(req,res) => {
-    res.sendFile('index.html')
+
+    var item = data.videos[Math.floor(Math.random()*data.videos.length)];
+    res.render("index.ejs",{
+        url:item
+    })
     /*res.set({
         'Access-Control-Expose-Headers': 'ETag',
         'Refresh': '5; url=https://www.youtube.com/watch?v=dQw4w9WgXcQ'
