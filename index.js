@@ -1,11 +1,10 @@
 const express = require('express')
-const path = require('path')
 const app = express()
 
-app.use((req,res,next) => {
+/*app.use((req,res,next) => {
     res.header('Refresh','10; url=https://www.youtube.com/watch?v=dQw4w9WgXcQ')
     next()
-})
+})*/
 
 app.use(express.static(__dirname + "/public"));
 
